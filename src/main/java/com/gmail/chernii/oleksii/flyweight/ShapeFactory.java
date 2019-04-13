@@ -8,14 +8,16 @@ import java.util.Map;
  */
 public class ShapeFactory {
     private static final Map<String, Shape> shapes = new HashMap<>();
+    private static final String POINT = "point";
+    private static final String CIRCLE = "circle";
 
     public Shape getShape(String shapeName) {
         Shape shape = shapes.get(shapeName);
         if (shape == null) {
-            if (shapeName.equalsIgnoreCase("point")) {
+            if (POINT.equalsIgnoreCase(shapeName)) {
                 shape = new Point();
             }
-            if (shapeName.equalsIgnoreCase("circle")) {
+            if (CIRCLE.equalsIgnoreCase(shapeName)) {
                 shape = new Circle((int) Math.random() * 10);
             }
             shapes.put(shapeName, shape);
